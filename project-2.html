@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>:: hacker_camerawork ::</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <style>
+        body{
+  background-color: black;
+}
+/* Style for the main header */
+.main-header {
+  background-color: #f7f7f7; /* Header background color */
+  color: #7e8597;
+  padding: 15px 15px; /* Header padding */
+  display: flex;
+  justify-content: space-between; /* Align left and right content */
+  align-items: center; /* Vertically center content */
+}
+
+/* Style for the left end content */
+.header-left {
+  display: flex;
+  align-items: center;
+  margin-left: 50px; /* Adjust spacing from the left */
+}
+
+.header-left ul {
+  list-style: none; /* Remove list bullets */
+  padding: 0;
+}
+
+.header-left li {
+  display: inline;
+  margin-right: 20px; /* Adjust spacing between elements */
+  font-size: 14px; /* Decrease font size */
+}
+
+.header-left a {
+  color: #7e8597; /* Left end text color */
+  text-decoration: none; /* Remove underlines */
+}
+
+/* Style for the right end content */
+.header-right {
+  display: flex;
+  align-items: center;
+  margin-right: 20px; /* Adjust spacing from the right */
+}
+
+/* Style for social media icons */
+.header-right a {
+  color: #7e8597; /* Social media icon color */
+  text-decoration: none; /* Remove underlines */
+  font-size: 18px; /* Decrease icon size */
+  margin-left: 20px; /* Adjust spacing between icons */
+}
+*{ 
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+.banner{
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+}
+.navbar{
+    width: 85%;
+    margin: auto;
+    padding: 35px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.logo{
+    width: 150px;
+    cursor: pointer;
+}
+.navbar ul li{
+    list-style: none;
+    display: inline-block;
+    margin: 0 20px;
+    position: relative;
+}
+.navbar ul li a{
+    text-decoration: none;
+    color: #7e8597;
+    text-transform: Uppercase;
+}
+.navbar ul li::after{
+    content: '';
+    height: 3px;
+    width: 0%;
+    background: #009688;
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    transition:0.5s;
+}
+.navbar ul li:hover::after{
+    width:100%;
+}
+.content{
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    color: #fff;
+}
+.content h1{
+    font-size: 70px;
+    margin-top: 80px;
+}
+.content p{
+    margin: 20px auto;
+    font-weight: 100;
+    line-height: 25px;
+}
+h3{
+  color: #fff;
+  text-align: center;
+  font-size: 36px;
+  margin: 10px 10px;
+}
+
+/* Additional styles for the image masonry */
+.category-col {
+    /* Your existing styles */
+    /* Add new styles for the image masonry */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.image-masonry {
+    column-count: 3; /* Set the number of columns */
+    column-gap: 15px; /* Adjust the gap between columns */
+    margin-top: 20px; /* Adjust top margin as needed */
+}
+
+.image-masonry img {
+    width: 100%;
+    margin-bottom: 10px; /* Adjust the gap between images */
+    display: block;
+    border-radius: 10px; /* Add border radius for image corners */   
+}
+
+/* Hover effect for images */
+.image-masonry img {
+    /* Your existing styles */
+    transition: transform 0.3s ease-in-out; /* Add a smooth transition */
+}
+
+.image-masonry img:hover {
+    transform: scale(0.9); /* Increase the image size on hover */
+}
+
+.see.more {
+  text-align: center;
+  margin: 10px;
+}
+
+.see.more a {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: rgb(45, 51, 53);
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 16px;
+  border: 10px;
+  margin: 5px; /* Add some margin for spacing */
+}
+
+/* Position the links */
+.see.more {
+  display: flex;
+  justify-content: space-between; /* Space items apart */
+}
+
+/* Adjust individual link styles */
+.see.more a {
+  margin: 0; /* Reset margin for the links */
+}
+
+
+/* Footer Section */
+.footer-bottom {
+  background-color: #333;
+  color: #fff;
+  padding: 20px 0px;
+  text-align: center;
+}
+
+/* Styles for the scroll to top button */
+#scrollToTopBtn {
+    display: none; /* Initially hide the button */
+    position: fixed; /* Fixed position on the screen */
+    bottom: 20px; /* Adjust the distance from the bottom */
+    right: 20px; /* Adjust the distance from the right */
+    background-color: transparent; /* Transparent background */
+    border: 2px solid #ffffff; /* White border */
+    color: #000000; /* Text color */
+    background-color: #fff;
+    font-size: 24px; /* Adjust the font size */
+    cursor: pointer;
+    opacity: 0.7; /* Initial transparency */
+    transition: opacity 0.3s; /* Smooth transition for opacity */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px; /* Padding inside the button */
+}
+
+#scrollToTopBtn:hover {
+    opacity: 1; /* Full opacity on hover */
+}
+
+@media only screen and (max-width: 768px) {
+  .logo {
+    width: 150px;
+    margin: 30px;
+  }
+
+  /* Navbar styles */
+  .navbar {
+    width: 100%;
+    padding: 20px 0;
+  }
+
+  .navbar ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .navbar ul li {
+    margin: 10px 0;
+  }
+
+  /* Header adjustments */
+  .header-left,
+  .header-right {
+    margin: 0;
+  }
+  .header-left ul li,
+  .header-right a {
+    font-size: 12px; /* Decrease font size for smaller screens */
+  }
+
+  /* Navbar adjustments */
+  .navbar {
+    width: 100%;
+    padding: 20px 0;
+  }
+  .navbar ul {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+  }
+  .navbar ul li {
+    margin: 10px 0;
+  }
+
+  /* Styles for image grid in mobile view */
+  .image-masonry {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100%, 1fr)); /* Images take full width */
+    gap: 15px; /* Adjust gap between images */
+    margin-top: 20px; /* Top margin as needed */
+    margin: 15px;
+  }
+
+  /* Image styles for mobile view */
+  .image-masonry img {
+    width: 380px; /* Take full width of their container */
+    height: auto; /* Auto-adjust height to maintain aspect ratio */
+    margin-bottom: 15px; /* Adjust the gap between images */
+    transition: transform 0.3s ease-in-out; /* Smooth image transformation on hover */
+  }
+
+  /* Hover effect for images in mobile view */
+  .image-masonry img:hover {
+    transform: scale(0.9); /* Scale the image on hover */
+  }
+
+      /* Footer adjustments */
+      .footer-bottom {
+    padding: 10px 0;
+  }
+  .copyright-text {
+    font-size: 12px;
+  }
+}
+</style>
+
+</head>
+<body>
+   <!-- main header -->
+    <header class="main-header"> 
+        <!-- header left -->
+        <div class="header-left">
+            <ul class="topbar-info">
+                <li><i class="icon-pin"></i> Nellore, Andhra Pradesh</li>
+                <li><i class="icon-mail"></i> <a href="mailto:hackercamerawork@gmail.com">hackercamerawork@gmail.com</a></li>
+                <li><i class="icon-phone"></i> +91-7981471527</li>
+            </ul>
+        </div>
+        
+        <!-- header right -->
+        <div class="header-right"> 
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+    </header>
+
+    <!-- Your page content goes here -->
+
+    <div class="banner">
+        <div class="navbar">
+            <img src="logo w.png" class="logo">
+            <ul>
+                <li><a href="index.html" style="color: white;">Home</a></li>
+                <li><a href="Posts.html" style="color: white;">Gallery</a></li>
+                <li><a href="Projects.html" style="color: white;">Projects</a></li>
+                <li><a href="About.html" style="color: white;">About</a></li>
+                <li><a href="contact.html" style="color: white;">Contact</a></li>
+            </ul>
+        </div>
+
+        <section class="category">
+          <div class="row">
+              <h3>Wings</h3>
+              <div class="category-col">
+                  <!-- Masonry-style arrangement of images -->
+                  <div class="image-masonry">
+                    <img src="Project2/butterfly (1).jpg" width="540px" height="260px">
+                    <img src="Project2/butterfly (4).jpg" width="260px" height="540px">
+                    <img src="Project2/butterfly.jpg" width="540px" height="260px">
+                    <img src="Project2/dragonfly.jpg" width="260px" height="540px">
+                    <img src="Project2/duck.jpg" width="540px" height="260px">
+                    <img src="Project2/butterfly (6).jpg" width="260px" height="540px">
+                    <img src="Project2/butterfly4.jpg" width="260px" height="540px">
+                    <img src="Project2/helmeted (1).jpg" width="260px" height="540px">
+                    <img src="Project2/parrot1.jpg" width="260px" height="540px">
+                    <img src="Project2/pigeon (7).jpg" width="260px" height="540px">
+                    <img src="Project2/pigeon (5).jpg" width="260px" height="540px">
+                    <img src="Project2/pigeon (6).jpg" width="260px" height="540px">
+                    <img src="Project2/pigeon (1).jpg" width="260px" height="540px">
+                    <img src="Project2/pigeon (4).jpg" width="260px" height="540px">
+                    <img src="Project2/helmeted (2).jpg" width="260px" height="540px">
+                    <img src="Project2/pigeon (3).jpg" width="260px" height="540px">
+                    <img src="Project2/dragon.JPG" width="540px" height="260px">
+                    <img src="Project2/birds.jpg" width="540px" height="260px">
+                    <img src="Project2/dragongf.jpg" width="540px" height="260px">
+                    <img src="Project2/pigeon (2).jpg" width="260px" height="540px">
+                    <img src="Project2/eagle.jpg" width="540px" height="260px">
+                    <img src="Project2/crow.jpg" width="540px" height="260px">
+                    <img src="Project2/hen.JPG" width="260px" height="540px">
+                    <img src="Project2/pigeo--.jpg" width="260px" height="540px">
+                    <img src="Project2/pige-.jpg" width="540px" height="260px">
+
+                </div>
+            </div>
+          </section>
+
+          <div class="see more">
+            <a href="project-1.html">Previous</a>
+            <a href="project-3.html">Next</a>
+          </div>
+
+      <!-- Scroll to Top Button -->
+<button onclick="scrollToTop()" id="scrollToTopBtn" title="Go to top">&#9650;</button>
+
+        <!--Footer Bottom-->
+        <div>
+          <footer>
+            <div class="footer-bottom">
+              <div class="container">
+                <div class="container-wrapper">
+                  <div class="copyright-text"> All Rights Reserved &copy; 2021 | Hacker_Camerawork</div>
+                </div>
+              </div>
+            </div>
+          </footer>
+        </div>
+        <!--End pagewrapper--> 
+
+    <script>
+      window.onload = function() {
+          const masonry = document.querySelector('.image-masonry');
+          let masonryColumns = 3; // Set the number of columns
+  
+          function updateMasonry() {
+              let columnWidth = masonry.offsetWidth / masonryColumns;
+              let items = masonry.children;
+              let columns = [];
+  
+              // Create columns
+              for (let i = 0; i < masonryColumns; i++) {
+                  let column = document.createElement('div');
+                  column.classList.add('masonry-column');
+                  column.style.width = columnWidth + 'px';
+                  columns.push(column);
+                  masonry.appendChild(column);
+              }
+  
+              // Distribute items to columns
+              for (let i = 0; i < items.length; i++) {
+                  let columnIndex = i % masonryColumns;
+                  columns[columnIndex].appendChild(items[i]);
+              }
+          }
+  
+          // Update masonry layout on window resize
+          window.addEventListener('resize', function() {
+              updateMasonry();
+          });
+  
+          updateMasonry();
+      };
+
+    window.onload = function() {
+        // Existing code...
+
+        updateMasonry();
+    };
+
+    // Function to scroll to the top of the page
+    function scrollToTop() {
+        document.body.scrollTop = 0; // For Safari
+        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE, and Opera
+    }
+
+    // Show/hide the button based on scroll position
+    window.onscroll = function() {
+        toggleScrollToTopButton();
+    };
+
+    function toggleScrollToTopButton() {
+        var scrollToTopButton = document.getElementById("scrollToTopBtn");
+        var scrollThresholdDesktop = 1000; // Desktop view threshold
+        var scrollThresholdMobile = 3000; // Mobile view threshold
+        var stopScrollingBeforeBottom = 200; // Stop scrolling 300px before reaching the bottom
+
+        // Display the button based on the viewport width
+        var scrollThreshold = window.innerWidth >= 768 ? scrollThresholdDesktop : scrollThresholdMobile;
+
+        // Calculate the remaining height to the bottom
+        var remainingHeight = document.documentElement.scrollHeight - (window.innerHeight + window.scrollY);
+
+        // Display the button when scrolling down to the specified threshold and before reaching the bottom
+        if (document.body.scrollTop > scrollThreshold || document.documentElement.scrollTop > scrollThreshold) {
+            if (remainingHeight > stopScrollingBeforeBottom) {
+                scrollToTopButton.style.display = "block";
+            } else {
+                scrollToTopButton.style.display = "none";
+            }
+        } else {
+            scrollToTopButton.style.display = "none";
+        }
+    }
+      </script>
+      
+</body>
+</html> 
+
+
